@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.navbar a:hover {
+  color: gold;
+}
+
+.navbar a.active {
+  color: gold;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+}

@@ -7,6 +7,9 @@ import Footer from '@/components/footer';
 import {default as Button} from '@/components/button'
 import {default as Card, SimpleCard} from '@/components/card';
 
+import styles from './page.module.css';
+import Gallery from '@/components/gallery';
+
 
 const HomePage = () => (
   <ConfigProvider theme={theme}>
@@ -21,40 +24,45 @@ const HomePage = () => (
         </div>
       </div>
       {/* info */}
-      <div style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/palm-leaf-shadow-sand-top-view-copy-space.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', marginBottom: 50 }}>
-        <div style={{  display: 'flex', justifyContent: 'space-around', maxWidth: 1000, margin: 'auto', padding: 10 }}>
-          <span>(832) 422-7017</span>
-          <span>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span>
-          <span>eonlashandbrow@gmail.com</span>
-        </div>
+      <div style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/palm-leaf-shadow-sand-top-view-copy-space.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', marginBottom: 50, backgroundRepeat: 'no-repeat' }}>
+        <Row gutter={[8, 8]} style={{ display: 'flex', textAlign: 'center', maxWidth: 1140, margin: 'auto', padding: 10 }}>
+          <Col xs={24} md={8}><span>(832) 422-7017</span></Col>
+          <Col xs={24} md={8}><span>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span></Col>
+          <Col xs={24} md={8}><span>eonlashandbrow@gmail.com</span></Col>
+        </Row>
       </div>
       {/* content */}
       <div style={{ maxWidth: 1140, margin: 'auto' }}>
         {/* about us */}
         <Row>
-          <Col span={12} style={{ alignItems: 'center', display: 'flex' }}>
-            <div style={{ marginRight: 50, padding: 10, display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <Col xs={24} md={12} style={{ alignItems: 'center', display: 'flex' }}>
+            <div className={styles.content} style={{ padding: 10, display: 'flex', flexDirection: 'column', gap: 20 }}>
               <h1>About Us</h1>
               <p>Your search for the best lash studio in your area ends with De’ lash studio. You’ve found it, with these amazing services that are offered at a great price. You will love how much attention you get from our skilled and licensed staff when you visit this fantastic lash studio. We promise to deliver the beauty and the attention you deserve, which you might not have gotten at other lash studios.</p>
-              <Button style={{ width: 'fit-content' }}>Read More</Button>
+              <div>
+                <Button style={{ width: 'fit-content' }}>Read More</Button>
+              </div>
             </div>
           </Col>
-          <Col span={12} style={{ backgroundColor: "#F6EEDF", padding: '30px 30px 0 0'}}>
-            <div style={{ margin: '0 0 -30px -30px' }}>
-              <img src='https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-close-up.jpg' style={{ maxWidth: '100%' }}></img>
+          <Col xs={24} md={12}>
+            <div style={{ backgroundColor: "#F6EEDF", transform: 'translate(15px, -15px)', margin: 40 }}>
+              <div style={{ transform: 'translate(-30px, 30px)' }}>
+                <img src='https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-close-up.jpg' style={{ maxWidth: '100%' }}></img>
+              </div>
             </div>
           </Col>
         </Row>
         {/* gallery */}
         <div style={{ marginTop: 50, marginBottom: 50 }}>
-          <h1>Gallery</h1>
+          <h1 className={styles.section}>Gallery</h1>
+          <Gallery></Gallery>
         </div>
         {/* services */}
         
-        <h1>Our Services</h1>
+        <h1 className={styles.section}>Our Services</h1>
         <div style={{ margin: 20 }}>
-          <Row gutter={40} style={{ paddingBottom: 30}}>
-            <Col span={8}>
+          <Row gutter={[40, 24]} style={{ paddingBottom: 30}}>
+            <Col xs={24} md={8}>
               <Card
                 imageUrl='https://delashstudio.us/wp-content/uploads/2023/08/tai-xuong-2.jpg'
                 title="Lashes"
@@ -62,7 +70,7 @@ const HomePage = () => (
               >
               </Card>
             </Col>
-            <Col span={8}>
+            <Col xs={24} md={8}>
               <Card
                 imageUrl='https://delashstudio.us/wp-content/uploads/2023/08/tai-xuong-1.jpg'
                 title="Facial"
@@ -70,7 +78,7 @@ const HomePage = () => (
               >
               </Card>
             </Col>
-            <Col span={8}>
+            <Col xs={24} md={8}>
               <Card
                 imageUrl='https://delashstudio.us/wp-content/uploads/2023/08/tai-xuong.jpg'
                 title="Lashes"
@@ -84,24 +92,24 @@ const HomePage = () => (
           </Row>
         </div>
         {/* how it works */}
-        <h1>How It Works</h1>
+        <h1 className={styles.section}>How It Works</h1>
         <div style={{ margin: 20 }}>
-          <Row gutter={40} style={{ paddingBottom: 30, display: 'flex', alignItems: 'flex-end'}}>
-            <Col span={8}>
+          <Row gutter={[40, 24]} style={{ paddingBottom: 30, display: 'flex', alignItems: 'flex-end'}}>
+            <Col xs={24} md={8}>
               <SimpleCard
                 title="Step 1"
                 description="Menu and Appointment. Please browse our menu service and pick your best selections. Highly recommend calling to make an appointment and letting us know what you are looking for."
               >
               </SimpleCard>
             </Col>
-            <Col span={8}>
+            <Col xs={24} md={8}>
               <SimpleCard
                 title="Step 2"
                 description="Talk to our professional staff for review different styles of lashes or select a service at your appointment. We will help you apply your desired service."
               >
               </SimpleCard>
             </Col>
-            <Col span={8}>
+            <Col xs={24} md={8}>
               <SimpleCard
                 title="Step 3"
                 description="Sit back and relax. Let us do the rest."
@@ -112,19 +120,15 @@ const HomePage = () => (
         </div>
 
         <Row style={{ paddingBottom: 40 }}>
-          <Col span={12} style={{ backgroundColor: "#F6EEDF", padding: '30px 30px 0 0'}}>
-            <div style={{ margin: '0 0 -30px -30px' }}>
-              <img src='https://delashstudio.us/wp-content/uploads/2023/08/woman-eye-with-long-eyelashes-eyelash-extension-1.jpg' style={{ maxWidth: '100%' }}></img>
+          <Col xs={24} md={12}>
+            <div style={{ backgroundColor: "#F6EEDF", transform: 'translate(15px, -15px)', margin: 40 }}>
+              <div style={{ transform: 'translate(-30px, 30px)' }}>
+                <img src='https://delashstudio.us/wp-content/uploads/2023/08/woman-eye-with-long-eyelashes-eyelash-extension-1.jpg' style={{ maxWidth: '100%' }}></img>
+              </div>
             </div>
           </Col>
-          
-          {/* <Col span={12}>
-            <h1>Feel Like A Queen</h1>
-            <span>We offer the best eyelash extensions in Katy in a comfortable and relaxing environment. Eyelash extensions are a great way to add length and volume to your natural lashes. It lasts between 3-4 weeks, looks natural, and enhances the beauty of your eyes. Our products allow you to choose from various styles and lengths to fit your eye shape and thickness. Once applied, you will notice an immediate transformation. Longer, fuller, and curvier eyelashes will make your eyes pop with beauty.</span>
-            <Button>Read More</Button>
-          </Col> */}
-          <Col span={12} style={{ alignItems: 'center', display: 'flex' }}>
-            <div style={{ marginLeft: 50, padding: 10, display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <Col xs={24} md={12} style={{ alignItems: 'center', display: 'flex' }}>
+            <div className={styles.content} style={{ padding: 10, display: 'flex', flexDirection: 'column', gap: 20 }}>
               <h1>Feel Like A Queen</h1>
               <span>We offer the best eyelash extensions in Katy in a comfortable and relaxing environment. Eyelash extensions are a great way to add length and volume to your natural lashes. It lasts between 3-4 weeks, looks natural, and enhances the beauty of your eyes. Our products allow you to choose from various styles and lengths to fit your eye shape and thickness. Once applied, you will notice an immediate transformation. Longer, fuller, and curvier eyelashes will make your eyes pop with beauty.</span>
               <Button style={{ width: 'fit-content' }}>Read More</Button>
