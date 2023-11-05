@@ -19,7 +19,7 @@ export default function Gallery() {
   const [curPos, setCurPos] = useState<number>(0)
 
   function currentTransform(): string {
-    return `translate(-${289 * curPos}px, 0)`;
+    return `translate(-${285 * curPos}px, 0)`;
   }
 
   function moveLeft() {
@@ -29,7 +29,6 @@ export default function Gallery() {
     else {
       setCurPos(curPos - 1)
     }
-    // setCurPos(1)
   }
 
   function moveRight() {
@@ -50,18 +49,19 @@ export default function Gallery() {
         transition: 'background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s)', 
         transform: currentTransform(),
         display: 'flex',
-        gap: 16,
       }}>
-        {images.map((image: string): ReactNode => <div key={1}><img style={{ width: '273px' }} src={image}></img></div> )}
+        {images.map((image: string): ReactNode => <div key={1} style={{ border: '1px #f07579 solid', margin: 6 }}>
+            <img style={{ width: 271, verticalAlign: 'middle', objectFit: 'cover' }} src={image}></img>
+          </div> )}
       </div>
 
       <div style={{ position: 'absolute', top: 0, display: 'flex', alignItems: 'center', height: '100%' }}>
-        <div style={{ backgroundColor: 'gold', marginLeft: 5, cursor: 'pointer' }}>
+        <div style={{ backgroundColor: '#f07579', marginLeft: 10, cursor: 'pointer' }}>
           <FontAwesomeIcon onClick={moveLeft} icon={faAngleLeft} width={17} style={{ verticalAlign: 'middle', color: "white", margin: 5 }}/>
         </div>
       </div>
       <div style={{ position: 'absolute', top: 0, right: 0, display: 'flex', alignItems: 'center', height: '100%' }}>
-        <div style={{ backgroundColor: 'gold', marginRight: 5, cursor: 'pointer' }}>
+        <div style={{ backgroundColor: '#f07579', marginRight: 10, cursor: 'pointer' }}>
           <FontAwesomeIcon onClick={moveRight} icon={faAngleRight} width={17} style={{ verticalAlign: 'middle', color: "white", margin: 5 }}/>
         </div>
       </div>

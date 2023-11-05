@@ -1,3 +1,22 @@
+.cover {
+  .button {
+    border-color: black;
+  }
+
+  .button:hover {
+    border-color: #f97597;
+  }
+}
+
+.info {
+  color: black;
+}
+
+.info:hover {
+  color: #f97597;
+  transition: all 0.2s;
+  cursor: pointer;
+}
 
 @media screen and (min-width: 768px) {
   .content {

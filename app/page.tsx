@@ -37,20 +37,38 @@ const HomePage = () => (
       <div className={styles.cover} style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-woman-eye-with-long-eyelashes-lashes-close-up-selected-focus.jpg")', backgroundSize: 'cover', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
         <h1 style={{ fontFamily: 'Georgia, Sans-serif', fontSize: 80, fontWeight: 'lighter', padding: 20, textAlign: 'center' }}>Eons Lash & Brow</h1>
         <div style={{ display: 'flex', gap: 20 }}>
-          <Button style={{ backgroundColor: 'transparent', border: '1px black solid' }}>Book Now</Button>
-          <Button style={{ backgroundColor: 'transparent', border: '1px black solid' }}>Call Us Now</Button>
+          <Button className={styles.button}>Book Now</Button>
+          <Button className={styles.button}>Call Us Now</Button>
         </div>
       </div>
       {/* info */}
       <div style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/palm-leaf-shadow-sand-top-view-copy-space.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', marginBottom: 50, backgroundRepeat: 'no-repeat' }}>
         <Row gutter={[8, 8]} style={{ display: 'flex', textAlign: 'center', maxWidth: 1140, margin: 'auto', padding: 10 }}>
-          <Col xs={24} md={8}><FontAwesomeIcon icon={faPhone} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }} /><span>(832) 422-7017</span></Col>
-          <Col xs={24} md={8}><FontAwesomeIcon icon={faLocationDot} width={12} style={{ verticalAlign: 'middle', marginRight: 5 }} /><span>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span></Col>
-          <Col xs={24} md={8}><FontAwesomeIcon icon={faEnvelope} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }} /><span>eonlashandbrow@gmail.com</span></Col>
+          <Col xs={24} md={8}>
+            <a href="tel:+1-832-422-7017">
+              <span className={styles.info}>
+                <FontAwesomeIcon icon={faPhone} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }} />(832) 422-7017
+              </span>
+            </a>
+          </Col>
+          <Col xs={24} md={8}>
+            <a target="_blank" href="https://www.google.com/maps?ll=30.013309,-95.601224&z=15&t=m&hl=en&gl=US&mapclient=embed&q=11690+Spring+Cypress+Rd+Suite+300+Tomball,+TX+77377">
+              <span className={styles.info}>
+                <FontAwesomeIcon icon={faLocationDot} width={12} style={{ verticalAlign: 'middle', marginRight: 5 }} />11690 Spring Cypress Rd, Ste 300, Cypress, Texas
+              </span>
+            </a>
+          </Col>
+          <Col xs={24} md={8}>
+            <a href="mailto:admin@email.com">
+              <span className={styles.info}>
+                <FontAwesomeIcon icon={faEnvelope} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }} />admin@gmail.com
+              </span>
+            </a>
+          </Col>
         </Row>
       </div>
       {/* content */}
-      <div style={{ maxWidth: 1140, margin: 'auto' }}>
+      <div style={{ maxWidth: 1140, margin: 'auto', paddingBottom: 40 }}>
         {/* about us */}
         <Row>
           <Col xs={24} md={12} style={{ alignItems: 'center', display: 'flex' }}>
@@ -63,7 +81,7 @@ const HomePage = () => (
             </div>
           </Col>
           <Col xs={24} md={12}>
-            <div style={{ backgroundColor: "#F6EEDF", transform: 'translate(15px, -15px)', margin: 40 }}>
+            <div style={{ backgroundColor: "#FFEEEE", transform: 'translate(15px, -15px)', margin: 40 }}>
               <div style={{ transform: 'translate(-30px, 30px)' }}>
                 <img src='https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-close-up.jpg' style={{ maxWidth: '100%' }}></img>
               </div>
@@ -72,13 +90,13 @@ const HomePage = () => (
         </Row>
         {/* gallery */}
         <div style={{ marginTop: 50, marginBottom: 50 }}>
-          <h1 className={styles.section}>Gallery</h1>
+          <h1 style={{ marginBottom: 20 }} className={styles.section}>Gallery</h1>
           <Gallery></Gallery>
         </div>
         {/* services */}
         
         <h1 className={styles.section}>Our Services</h1>
-        <div style={{ margin: 20 }}>
+        <div style={{ margin: 20, paddingBottom: 20 }}>
           <Row gutter={[40, 24]} style={{ paddingBottom: 30}}>
             <Col xs={24} md={8}>
               <Card
@@ -139,7 +157,7 @@ const HomePage = () => (
 
         <Row style={{ paddingBottom: 40 }}>
           <Col xs={24} md={12}>
-            <div style={{ backgroundColor: "#F6EEDF", transform: 'translate(15px, -15px)', margin: 40 }}>
+            <div style={{ backgroundColor: "#FFEEEE", transform: 'translate(15px, -15px)', margin: 40 }}>
               <div style={{ transform: 'translate(-30px, 30px)' }}>
                 <img src='https://delashstudio.us/wp-content/uploads/2023/08/woman-eye-with-long-eyelashes-eyelash-extension-1.jpg' style={{ maxWidth: '100%' }}></img>
               </div>
