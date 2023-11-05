@@ -1,5 +1,7 @@
 'use client'
 
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Row } from "antd";
 import { relative } from "path";
 import { ReactNode, useState } from "react";
@@ -41,15 +43,27 @@ export default function Gallery() {
   
   return (
     <div style={{ background: 'white', overflow: 'hidden', position: 'relative' }}>
-      <Row gutter={16} wrap={false} style={{ transition: 'background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s)', transform: currentTransform()  }}>
-        {images.map((image: string): ReactNode => <Col key={1} span={6}><img style={{ maxWidth: '100%' }} src={image}></img></Col> )}
-      </Row>
+      {/* <Row gutter={16} wrap={false} style={{ transition: 'background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s)', transform: currentTransform()  }}>
+        {images.map((image: string): ReactNode => <Col key={1} span={6}><img style={{ width: '100%' }} src={image}></img></Col> )}
+      </Row> */}
+      <div style={{ 
+        transition: 'background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s)', 
+        transform: currentTransform(),
+        display: 'flex',
+        gap: 16,
+      }}>
+        {images.map((image: string): ReactNode => <div key={1}><img style={{ width: '273px' }} src={image}></img></div> )}
+      </div>
 
       <div style={{ position: 'absolute', top: 0, display: 'flex', alignItems: 'center', height: '100%' }}>
-        <Button onClick={moveLeft}>Left</Button>
+        <div style={{ backgroundColor: 'gold', marginLeft: 5, cursor: 'pointer' }}>
+          <FontAwesomeIcon onClick={moveLeft} icon={faAngleLeft} width={17} style={{ verticalAlign: 'middle', color: "white", margin: 5 }}/>
+        </div>
       </div>
       <div style={{ position: 'absolute', top: 0, right: 0, display: 'flex', alignItems: 'center', height: '100%' }}>
-        <Button onClick={moveRight}>Right</Button>
+        <div style={{ backgroundColor: 'gold', marginRight: 5, cursor: 'pointer' }}>
+          <FontAwesomeIcon onClick={moveRight} icon={faAngleRight} width={17} style={{ verticalAlign: 'middle', color: "white", margin: 5 }}/>
+        </div>
       </div>
     </div>
   )

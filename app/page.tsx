@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Col, ConfigProvider, Row } from 'antd';
 import Header from '@/components/header'
 import theme from '@/theme/themeConfig';
@@ -11,13 +11,31 @@ import styles from './page.module.css';
 import Gallery from '@/components/gallery';
 
 
+import { faPhone, faLocationDot, faEnvelope, faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+const reviews: {profileImg: string, name: string, reviewDate: string, reviewDetails: string}[] = [
+  {
+    profileImg: "https://lh3.googleusercontent.com/a-/AD_cMMT2mJBg784j7l7C5rpd0LjuCCoiB4qG4gyVg6YtCBYOKA=s120-c-rp-mo-br100",
+    name: "Abby Rhodes",
+    reviewDate: "2023-06-28",
+    reviewDetails: "Amazing!!! My lashes are naturally so blonde you can barely see them. Nicole did amazing and 4 weeks later, they are still dark and curled. This image was when i first got them done! 🙂 thank you Nicole!!!!!!!"
+  },
+  {
+    profileImg: "https://lh3.googleusercontent.com/a-/AD_cMMRTkLXmYEulQv4EmARtjn8qv_lT0mRs2399CAbXjfmMeBI=s120-c-rp-mo-br100",
+    name: "Michaela Vogt",
+    reviewDate: "2023-05-22",
+    reviewDetails: "I’ve had my lashes done a couple times before but Nichole is definitely the best lash tech I’ve had super knowledgeable and friendly!"
+  }
+]
+
 const HomePage = () => (
   <ConfigProvider theme={theme}>
     <div className="App">
       <Header></Header>
       {/* cover */}
-      <div style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-woman-eye-with-long-eyelashes-lashes-close-up-selected-focus.jpg")', backgroundSize: 'cover', backgroundPositionY: -290, minHeight: '87vh', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
-        <h1 style={{ fontFamily: 'Georgia, Sans-serif', fontSize: 80, fontWeight: 'lighter', padding: 20 }}>Eons Lash & Brow</h1>
+      <div className={styles.cover} style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-woman-eye-with-long-eyelashes-lashes-close-up-selected-focus.jpg")', backgroundSize: 'cover', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
+        <h1 style={{ fontFamily: 'Georgia, Sans-serif', fontSize: 80, fontWeight: 'lighter', padding: 20, textAlign: 'center' }}>Eons Lash & Brow</h1>
         <div style={{ display: 'flex', gap: 20 }}>
           <Button style={{ backgroundColor: 'transparent', border: '1px black solid' }}>Book Now</Button>
           <Button style={{ backgroundColor: 'transparent', border: '1px black solid' }}>Call Us Now</Button>
@@ -26,9 +44,9 @@ const HomePage = () => (
       {/* info */}
       <div style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/palm-leaf-shadow-sand-top-view-copy-space.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', marginBottom: 50, backgroundRepeat: 'no-repeat' }}>
         <Row gutter={[8, 8]} style={{ display: 'flex', textAlign: 'center', maxWidth: 1140, margin: 'auto', padding: 10 }}>
-          <Col xs={24} md={8}><span>(832) 422-7017</span></Col>
-          <Col xs={24} md={8}><span>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span></Col>
-          <Col xs={24} md={8}><span>eonlashandbrow@gmail.com</span></Col>
+          <Col xs={24} md={8}><FontAwesomeIcon icon={faPhone} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }} /><span>(832) 422-7017</span></Col>
+          <Col xs={24} md={8}><FontAwesomeIcon icon={faLocationDot} width={12} style={{ verticalAlign: 'middle', marginRight: 5 }} /><span>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span></Col>
+          <Col xs={24} md={8}><FontAwesomeIcon icon={faEnvelope} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }} /><span>eonlashandbrow@gmail.com</span></Col>
         </Row>
       </div>
       {/* content */}
@@ -136,12 +154,43 @@ const HomePage = () => (
           </Col>
         </Row>
 
-
-        {/* <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-          <h1>What our clients are saying</h1>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
+          <h1 style={{ textAlign: 'center' }}>What our clients are saying</h1>
           <Button>Write A Review</Button>
-          <span>EXCELLENT 32 reviews on Google</span>
-        </div> */}
+          <div style={{ marginTop: 20 }}>
+            <span style={{ fontSize: 14, fontWeight: 'bold' }}>EXCELLENT</span>
+            <FiveStar color='#f6bb06'/>
+            <span style={{ fontWeight: 'bold', fontSize: 13 }}>32 reviews </span>
+            <span style={{ fontSize: 13, marginRight: 10 }}>on</span>
+            <span><img style={{ height: '20px', verticalAlign: 'middle' }} src='https://delashstudio.us/wp-content/plugins/wp-reviews-plugin-for-google/static/img/platform/logo.svg?ver=do-not-care-10.5'></img></span>
+          </div>
+          <div>
+            {reviews.map(review => <div key={1} style={{ display: 'flex', flexDirection: 'column', margin: 10, position: 'relative', paddingBottom: 40 }}>
+              <div style={{ display: 'flex', gap: 15, alignItems: 'center' }}>
+                <img src={review.profileImg} style={{ width: 40, height: 40 }}></img>
+                <div>
+                  <p style={{ fontWeight: 'bold', fontSize: 14 }}>{review.name}</p>
+                  <p style={{ fontSize: 12, color: '#666' }}>{review.reviewDate}</p>
+                </div>
+                <img style={{ marginLeft: 'auto', marginRight: 10, width: 20 }} src="https://cdn.trustindex.io/assets/platform/Google/icon.svg"></img>
+              </div>
+              <FiveStar color='gold' style={{ marginLeft: 0, }}/>
+              <p>{review.reviewDetails}</p>
+            </div>)}
+            {/* <div key={1} style={{ display: 'flex', flexDirection: 'column', margin: 10, position: 'relative' }}>
+              <div style={{ display: 'flex', gap: 15, alignItems: 'center' }}>
+                <img src={reviews.at(0)?.profileImg} style={{ width: 40, height: 40 }}></img>
+                <div>
+                  <p style={{ fontWeight: 'bold', fontSize: 14 }}>{reviews.at(0)?.name}</p>
+                  <p style={{ fontSize: 12, color: '#666' }}>{reviews.at(0)?.reviewDate}</p>
+                </div>
+                <img style={{ marginLeft: 'auto', marginRight: 10, width: 20 }} src="https://cdn.trustindex.io/assets/platform/Google/icon.svg"></img>
+              </div>
+              <FiveStar color='gold' style={{ marginLeft: 0, }}/>
+              <p>{reviews.at(0)?.reviewDetails}</p>
+            </div> */}
+          </div>
+        </div>
       </div>
       
       <Footer></Footer>
@@ -150,3 +199,13 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
+function FiveStar(props: {color?: string, style?: CSSProperties}) {
+  return <span style={{ margin: 10, ...props.style }}>
+    <FontAwesomeIcon icon={faStar} color={props.color} width={17} />
+    <FontAwesomeIcon icon={faStar} color={props.color} width={17} />
+    <FontAwesomeIcon icon={faStar} color={props.color} width={17} />
+    <FontAwesomeIcon icon={faStar} color={props.color} width={17} />
+    <FontAwesomeIcon icon={faStar} color={props.color} width={17} />
+  </span>
+}

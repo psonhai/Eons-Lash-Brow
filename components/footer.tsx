@@ -1,6 +1,8 @@
 import { Col, Row, theme } from "antd";
 
 import pageStyles from '../app/page.module.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   return (
@@ -15,13 +17,13 @@ export default function Footer() {
           <Col xs={24} md={8}>
             <div className={pageStyles.content} style={{ display: 'flex', flexDirection: 'column' }}>
               <h1>Contact</h1>
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                <span>832-422-7017</span>
-                <span>admin@gmail.com</span>
-                <span>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 5 }}>
+                <span><FontAwesomeIcon icon={faPhone} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }}/>832-422-7017</span>
+                <span><FontAwesomeIcon icon={faEnvelope} width={14} style={{ verticalAlign: 'middle', marginRight: 5 }}/>admin@gmail.com</span>
+                <span><FontAwesomeIcon icon={faLocationDot} width={12} style={{ verticalAlign: 'middle', marginRight: 5 }}/>11690 Spring Cypress Rd, Ste 300, Cypress, Texas</span>
               </div>
               <h1>Business Hours</h1>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
                 <span>Mon-Sat: 09:00AM</span>
                 <span>Sunday: 10:00AM</span>
               </div>

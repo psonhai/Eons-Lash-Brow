@@ -3,6 +3,11 @@
   .content {
     text-align: left;
   }
+
+  .cover {
+    background-position-y: -290;
+    min-height: 87vh;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -16,6 +21,11 @@
 
   .section {
     text-align: center;
+  }
+  
+  .cover {
+    background-position: center center;
+    min-height: 60vh;
   }
 }
 
