@@ -37,8 +37,8 @@ const HomePage = () => (
       <div className={styles.cover} style={{ backgroundImage: 'url("https://delashstudio.us/wp-content/uploads/2023/08/eyelash-extension-procedure-woman-eye-with-long-eyelashes-lashes-close-up-selected-focus.jpg")', backgroundSize: 'cover', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
         <h1 style={{ fontFamily: 'Georgia, Sans-serif', fontSize: 80, fontWeight: 'lighter', padding: 20, textAlign: 'center' }}>Eons Lash & Brow</h1>
         <div style={{ display: 'flex', gap: 20 }}>
-          <Button className={styles.button}>Book Now</Button>
-          <Button className={styles.button}>Call Us Now</Button>
+          <a href='tel:+1-832-422-7017'><Button className={styles.button}>Book Now</Button></a>
+          <a href='tel:+1-832-422-7017'><Button className={styles.button}>Call Us Now</Button></a>
         </div>
       </div>
       {/* info */}

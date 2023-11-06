@@ -16,7 +16,7 @@ export default function Header() {
           <Link href="#"><span>Contacts</span></Link>
           <Link href="#"><span>Reviews</span></Link>
         </div>
-        <Button style={{ margin: 10, marginLeft: 'auto', marginRight: 10 }}>Book Now</Button>
+        <a href='tel:+1-832-422-7017'><Button style={{ margin: 10, marginLeft: 'auto', marginRight: 10 }}>Book Now</Button></a>
       </div>
     </nav>
   )
